@@ -35,7 +35,7 @@ TEST(HeapTest, WarnWhenOverUsageLimit) {
   EXPECT_FALSE(is_over_limit);
   void* v2 = (char*)heap.New(128);
   EXPECT_TRUE(is_over_limit);
-  EXPECT_GE(given_usage, 1 + 128);
+  EXPECT_GE(given_usage, 1 + 128);  // Actual usage is implementation-dependent.
 
   heap.Delete(v1);
   heap.Delete(v2);
