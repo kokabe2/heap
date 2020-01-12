@@ -24,7 +24,6 @@ static void Del(void** memory) {
   free(*memory);
   *memory = NULL;
 }
-static int Usage(void) { return the_usage; }
 static void SetUsageWarning(int size, void (*func)(int usage)) {
   the_usage_for_warning = size;
   the_warning_func = func;
@@ -32,6 +31,5 @@ static void SetUsageWarning(int size, void (*func)(int usage)) {
 const Heap heap = {
     .New = New,
     .Del = Del,
-    .Usage = Usage,
     .SetUsageWarning = SetUsageWarning,
 };

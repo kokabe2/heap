@@ -8,7 +8,6 @@
 typedef struct {
   void* (*New)(int size);
   void (*Del)(void** memory);
-  int (*Usage)(void);
   void (*SetUsageWarning)(int size, void (*func)(int usage));
 } Heap;
 

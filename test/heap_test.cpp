@@ -16,20 +16,6 @@ TEST(HeapTest, HowToUse) {
   EXPECT_EQ(NULL, c);
 }
 
-TEST(HeapTest, Usage) {
-  void* v1 = (char*)heap.New(25);
-  void* v2 = (char*)heap.New(8);
-  void* v3 = (char*)heap.New(17);
-
-  EXPECT_GE(heap.Usage(), 50);  // Actual size is implementation-dependent.
-
-  heap.Delete(v1);
-  heap.Delete(v2);
-  heap.Delete(v3);
-
-  EXPECT_EQ(0, heap.Usage());
-}
-
 namespace {
 bool is_over_limit;
 int given_usage;
@@ -48,7 +34,7 @@ TEST(HeapTest, WarnWhenOverUsageLimit) {
   EXPECT_FALSE(is_over_limit);
   void* v2 = (char*)heap.New(128);
   EXPECT_TRUE(is_over_limit);
-  EXPECT_EQ(heap.Usage(), given_usage);
+  EXPECT_GE(given_usage, 1 + 128);
 
   heap.Delete(v1);
   heap.Delete(v2);
