@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
-project(LedDriver)
+project(heap)
 
 # place binaries and libraries according to GNU standards
 include(GNUInstallDirs)
