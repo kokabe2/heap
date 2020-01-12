@@ -10,6 +10,7 @@ TEST(HeapTest, HowToUse) {
   char* c = (char*)heap.New(128);
 
   EXPECT_TRUE(c != NULL);
+  for (int i = 0; i < 128; ++i) EXPECT_EQ(0, c[i]) << "Failure at index " << i;
 
   heap.Delete(c);
 
