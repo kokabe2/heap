@@ -10,3 +10,6 @@ script:
   - cmake ..
   - make
   - ctest
+
+notifications:
+  email: false
